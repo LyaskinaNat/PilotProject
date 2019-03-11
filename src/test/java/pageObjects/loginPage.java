@@ -1,8 +1,13 @@
 package pageObjects;
 
+import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
+import utils.driverFactory;
 
-public class loginPage  {
+public class loginPage extends driverFactory {
+	
+//login page
 	
 public String signInButton = "//a[@title='Log in to your customer account']"; // xPath locator
 
@@ -12,13 +17,24 @@ public String password = "passwd"; //id locator
 
 public String submit = "SubmitLogin"; //id locator
 
-public String userSignedIn = "//a[@title='View my customer account']";
+public String userSignedIn = "//a[@title='View my customer account']"; // xPath locator
 
-public String authFailed = "//li[contains(text(),'Authentication failed.')]";
+public String authFailed = "//li[contains(text(),'Authentication failed.')]"; // xPath locator
 
-public String invalidEmail = "//li[contains(text(),'Invalid email address.')]";
+public String invalidEmail = "//li[contains(text(),'Invalid email address.')]"; // xPath locator
 
+public void userLoggesIn () throws Throwable {
 	
+	driver.get("http:\\/\\/automationpractice.com/");
+	driver.manage().timeouts().pageLoadTimeout(60,TimeUnit.SECONDS);
+	driver.findElement(By.xpath(signInButton)).click();
+	driver.findElement(By.id(email)).sendKeys("bellnatnat@gmail.com");
+	driver.findElement(By.id(password)).sendKeys("Mytestpassword");
+	driver.findElement(By.id(loginPage.submit)).click();
+	Thread.sleep(1000);
+	
+}
+
 
 }
 
