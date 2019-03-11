@@ -14,6 +14,10 @@ public String submit = "SubmitLogin"; //id locator
 
 public String userSignedIn = "//a[@title='View my customer account']";
 
+public String authFailed = "//li[contains(text(),'Authentication failed.')]";
+
+public String invalidEmail = "//li[contains(text(),'Invalid email address.')]";
+
 	
 
 }

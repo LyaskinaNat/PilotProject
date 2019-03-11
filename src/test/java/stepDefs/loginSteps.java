@@ -21,12 +21,12 @@ public class loginSteps extends loginPage {
 	
 	@Before
 	  
-	  public void setupChromeDriver() {
+	  public void setupFirefoxDriver() {
 	  
 	  try {
 	  
 	  
-	  String exePath = "/src/test/java/drivers/geckogriver.exe";
+	  String exePath = "/src/test/java/drivers/geckodriver.exe";
 	  System.setProperty("webdriver.firefox.driver", exePath ); 
 	  this.driver = new FirefoxDriver(); this.driver.manage().window().maximize();
 	  this.driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
@@ -97,7 +97,9 @@ public class loginSteps extends loginPage {
 
 	@Then("Authentication failed message should be displayed to the user")
 	public void authentication_failed_message_should_be_displayed_to_the_user() {
-		System.out.println("-");
+		String auth =driver.findElement(By.xpath(authFailed)).getText();
+		Assert.assertEquals("Authentication failed.", auth);
+		
 	}
 
 	@Given("User enters an incorrect format email address")
@@ -113,7 +115,9 @@ public class loginSteps extends loginPage {
 
 	@Then("Error message Invalid email address is displayed to the user")
 	public void error_message_Invalid_email_address_is_displayed_to_the_user() {
-		System.out.println("-");
+		String auth =driver.findElement(By.xpath(invalidEmail)).getText();
+		Assert.assertEquals("Invalid email address.", auth);
+		
 	}
 
 }
