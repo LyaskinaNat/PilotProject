@@ -9,16 +9,17 @@ I want the system to keep the track of all added items before checkout
  Scenario Outline: User successfully adds one and more items into the shopping basket
 
     Given logged in user navigates to Summer Dresses section of the website
-    And user clicks on  the item "<Add to cart>" button
-    When user clicks on "<Continue shopping>" button
+    And user clicks on  the item "<item>"
+    And user clicks on Add to cart button
+    When user clicks on Proceed to checkout button
     Then user should see "<amount>" of items in the basket
 
 
     Examples:
 
-      |   Add to cart     |  Continue shopping   |  amount |
-      |   item 1 locator  |   Button locator     |   1     |
-      |   item 2 locator  |   Button locator     |   2     |
+      |   item                                                           |  amount |
+      |   //*[@id=\"center_column\"]/ul/li[1]/div/div[1]/div/a[1]/img    |   1     |
+      |   //*[@id=\"center_column\"]/ul/li[2]/div/div[1]/div/a[1]/img    |   2     |
   
   
   

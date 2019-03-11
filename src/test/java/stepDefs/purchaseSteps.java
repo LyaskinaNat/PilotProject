@@ -2,6 +2,9 @@ package stepDefs;
 
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -24,25 +27,40 @@ public class purchaseSteps extends driverFactory {
 		//user clicks DRESSES button 
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(dressesPage.dressesButton)));
         driver.findElement(By.xpath(dressesPage.dressesButton)).click();
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(dressesPage.summerDressesButton)));
-		driver.findElement(By.xpath(dressesPage.summerDressesButton)).click();
+//		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(dressesPage.summerDressesButton)));
+//		driver.findElement(By.xpath(dressesPage.summerDressesButton)).click();
+		
+	}
+
+	@Given("user clicks on  the item {string}")
+	public void user_clicks_on_the_item(String item) throws Throwable {
+		WebDriverWait wait = new WebDriverWait(driver, 5);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Thread.sleep(1000);
-			
+        js.executeScript("window.scrollBy(0,7000)");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(item)));
+		driver.findElement(By.xpath(item)).click();
+		Thread.sleep(1000);
 		
 		
-
+		
 	}
+	
+	@Given("user clicks on Add to cart button")
+	public void user_clicks_on_Add_to_cart_button() throws Throwable {
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.name(dressesPage.addToCart)));
+		driver.findElement(By.name(dressesPage.addToCart)).click();
 
-	@Given("user clicks on  the item {string} button")
-	public void user_clicks_on_the_item_button(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-		System.out.println("2");
-	}
+		}
+	
 
-	@When("user clicks on {string} button")
-	public void user_clicks_on_button(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-		System.out.println("3");
+	@When("user clicks on Proceed to checkout button")
+	public void user_clicks_on_Proceed_to_checkout_button() throws Throwable  {
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(dressesPage.checkout)));
+		driver.findElement(By.xpath(dressesPage.checkout)).click();
+		Thread.sleep(2000);
 	}
 
 	@Then("user should see {string} of items in the basket")
