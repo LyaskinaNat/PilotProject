@@ -1,4 +1,4 @@
-Feature: Sign in into account
+Feature: Sign in into account                   //Scenario with Background key word and positive/negative testing
 
 In order to Sign in into the account 
 As a user 

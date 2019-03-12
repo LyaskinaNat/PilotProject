@@ -1,4 +1,4 @@
-Feature: Order checkout
+Feature: Order checkout                                         //Simple senarion End-to-end testing
 
 In order to make a purchase of an item 
 As a signed in user 

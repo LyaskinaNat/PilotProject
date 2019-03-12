@@ -1,4 +1,4 @@
-Feature: Add an items to the basket 
+Feature: Add an items to the basket                          //Simple scenario Functionality testing
 
 In order to accomodate a purchase
 As a user 

@@ -1,4 +1,4 @@
-Feature: Navigate to all sub-categories in DRESSES category
+Feature: Navigate to all sub-categories in DRESSES category                      //Scenario Outline Site navigation testing
 
 In order to navigate to a chosen sub-category
 As a user 
@@ -14,7 +14,7 @@ I want the system to redirect me to the corresponding to chosen sub-category pag
 
     Examples:
 
-      |   subCategory                                      |     pageName     |
+      |   subCategory                                                                           |     pageName      |
       |   /html[1]/body[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]    |   CASUAL DRESSES  |
       |   /html[1]/body[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]    |   EVENING DRESSES |
       |   /html[1]/body[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]    |   SUMMER DRESSES  |
