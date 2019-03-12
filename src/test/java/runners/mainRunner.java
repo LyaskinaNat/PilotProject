@@ -7,9 +7,10 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features = "src/test/resources",
-		glue = {"src/test/java/stepDefs"},
-		plugin = {"pretty"}
+		features = {"src/test/resources"},
+		glue = {"stepDefs"},
+		plugin = {"pretty"},
+		monochrome = true
 		)
 
 public class mainRunner {

@@ -1,12 +1,11 @@
 package utils;
 
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
 import pageObjects.dressesPage;
 import pageObjects.loginPage;
+import pageObjects.checkoutPage;
 
 
 public class driverFactory {
@@ -14,6 +13,7 @@ public class driverFactory {
 	public static WebDriver driver;
 	public static loginPage loginPage;
 	public static dressesPage dressesPage;
+	public static checkoutPage checkoutPage;
 	
 	public WebDriver getFirefoxDriver() {
 		  
@@ -33,6 +33,7 @@ public class driverFactory {
 		//	  driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 			  loginPage = PageFactory.initElements(driver, loginPage.class);
 			  dressesPage = PageFactory.initElements(driver, dressesPage.class);
+			  checkoutPage = PageFactory.initElements(driver, checkoutPage.class);
 		  }
 		  return driver;
 	}
