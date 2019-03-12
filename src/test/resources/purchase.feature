@@ -1,27 +1,21 @@
-Feature: Add one and more items to the basket for a singed in user
+Feature: Add an items to the basket 
 
-In order to one and more items to the basket
-As a singned in user 
-I want the system to keep the track of all added items before checkout 
+In order to accomodate a purchase
+As a user 
+I want the system to add the selected item to the shopping basket
 
 
   
- Scenario Outline: User successfully adds one and more items into the shopping basket
+ Scenario: User successfully adds oa selected item into the shopping basket
 
-    Given logged in user navigates to Summer Dresses section of the website
-    And user clicks on  the item "<item>"
+    Given user navigates to Summer Dresses section of the website
+    And user selects the item to purchase
     And user clicks on Add to cart button
     When user clicks on Proceed to checkout button
-    Then user should see "<amount>" of items in the basket
+    Then the item should be adde to the basket
 
 
-    Examples:
-
-      |   item                                                           |  amount |
-      |   //*[@id=\"center_column\"]/ul/li[1]/div/div[1]/div/a[1]/img    |   1     |
-      |   //*[@id=\"center_column\"]/ul/li[2]/div/div[1]/div/a[1]/img    |   2     |
-  
-  
+    
   
   
   
