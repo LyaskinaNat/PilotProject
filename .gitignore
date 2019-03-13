@@ -5,3 +5,7 @@
 /build/
 /.gradle/
 .DS_Store
+.settings/
+.project/
+STDOUT
+.classpath/
